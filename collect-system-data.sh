@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /var/opx/cron-script/system-alerts/instance-list
+source /var/system-alerts/instance-list
 
 DAY=$(date +"%Y-%m-%d")
 DIR=/mnt/tmp
