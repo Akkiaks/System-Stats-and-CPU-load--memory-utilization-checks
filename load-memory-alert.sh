@@ -4,9 +4,9 @@ source /var/system-alerts/instance-list
 
 SEND_EMAIL=1
 
-# to="opxengg@admarvel.com"
+# to="akash.akkis@gmail.com"
 to="opx-noc@admarvel.com"
-# to=joydeep@admarvel.com
+# to=akash.aakis@gmail.com
 
 function wrap_cpu {
   if [ "$2" != "DB Report Master" ] && [ "$2" != "DB Report Slave" ] ; then
@@ -16,7 +16,7 @@ function wrap_cpu {
   echo $2 $numcpu $load $percent
   tmp=$(echo "$percent > 80" | bc)
   if [ "$tmp" == 1 ]; then
-    mesg=$(echo "to=$to&subject=OPX Alert: Load Average High on $2 ($1) - $percent%&body=<pre>#CPU: $numcpu<br>Load: $load")
+    mesg=$(echo "to=$to&subject=Alert: Load Average High on $2 ($1) - $percent%&body=<pre>#CPU: $numcpu<br>Load: $load")
     if [ $SEND_EMAIL == 1 ]; then
       curl --data "$mesg" https://example.com/email/send
     else
@@ -33,7 +33,7 @@ function wrap_mem {
   echo $2 $total $mem $percent
   tmp=$(echo "$percent > 85" | bc)
   if [ "$tmp" == 1 ]; then
-    mesg=$(echo "to=$to&subject=OPX Alert: Memory Utilization High on $2 ($1) - $percent%&body=<pre>Total: $total<br>Used:  $mem")
+    mesg=$(echo "to=$to&subject=Alert: Memory Utilization High on $2 ($1) - $percent%&body=<pre>Total: $total<br>Used:  $mem")
     if [ $SEND_EMAIL == 1 ]; then
       curl --data "$mesg" https://example.com/email/send
     else
