@@ -5,7 +5,7 @@ source /var/system-alerts/instance-list
 SEND_EMAIL=1
 
 # to="akash.akkis@gmail.com"
-to="opx-noc@admarvel.com"
+to="akash.akkis@gmail.com"
 # to=akash.aakis@gmail.com
 
 function wrap_cpu {
